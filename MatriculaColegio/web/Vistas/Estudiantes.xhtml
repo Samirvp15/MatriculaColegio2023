@@ -196,6 +196,7 @@
                                                 </h:outputText>
                                             </b:dataTableColumn>
                                             <b:dataTableColumn  value="#{estudiante.direccion}" label="DIRECCION" width="150px" />
+                                            <b:dataTableColumn  value="#{estudiante.ind}" label="ESTADO" width="150px" />
                                             <b:dataTableColumn label="ACCIONES" width="180px">
                                                 <b:commandButton oncomplete="$('.modalPseudoClass2').modal()" value="Editar" look="success" style="width:80px; align-content: center;" action="#{beanEstudiante.obtenerEstudiante(estudiante.idEstudiante)}">
                                                     <f:ajax execute="@this" render="myFormID">
@@ -244,6 +245,11 @@
                                     <div class="col-6 mt-2">
                                         <h4>Direccion</h4>
                                         <b:inputText id="direccion" value="#{beanEstudiante.est.direccion}" required="true" requiredMessage="La direccion es obligatoria"/> 
+                                        <b:message for="@previous" />
+                                    </div>
+                                     <div class="col-6 mt-2">
+                                        <h4>Estado</h4>
+                                        <b:inputText id="estado" value="#{beanEstudiante.est.ind}" required="true" requiredMessage="El estado es obligatoria"/> 
                                         <b:message for="@previous" />
                                     </div>
 

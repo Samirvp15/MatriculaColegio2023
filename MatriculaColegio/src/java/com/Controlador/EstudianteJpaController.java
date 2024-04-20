@@ -87,7 +87,7 @@ public class EstudianteJpaController implements Serializable {
 
     public List<Estudiante> listarEstudiantes(){
         EntityManager em =getEntityManager();
-        Query query = em.createQuery("SELECT e FROM Estudiante e where e.ind='S'");
+        Query query = em.createQuery("SELECT e FROM Estudiante e");
         List<Estudiante> list = (List<Estudiante>) query.getResultList();
         return list;
     }
