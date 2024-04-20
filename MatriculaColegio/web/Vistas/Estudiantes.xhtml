@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="../ComponentesWeb/Custom_CSS.css"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </h:head>
+    <h:body>
+        <div class="container-fluid">
+            <div class="row">
+                <b:form>
+                    <nav class="sidebar">
+                        <div class="position-sticky">
+                            <ul class="nav flex-column">
+                                <div class="row-imagen">
+                                    <div class="col-md-2">
+                                        <img src="../img/logocole.png" alt="Logo de la Empresa"/>
+                                    </div>
+                                </div>
+                                <li class="nav-item">
+                                    <b:commandButton class="nav-link" action="Estudiantes">
+                                        <div class="icon">
+                                            <img src="../img/icon-estudiantes.png" alt="Estudiantes"/>
+                                        </div>
+                                        <span>Estudiantes</span>
+                                    </b:commandButton>
+                                </li>
+                                <li class="nav-item">
+                                    <b:commandButton class="nav-link" action="Apoderados">
+                                        <div class="icon">
+                                            <img src="../img/icon-docentes.png" alt="Apoderados"/>
+                                        </div>
+                                        <span>Apoderados</span>
+                                    </b:commandButton>
+                                </li>
+                                <li class="nav-item">
+                                    <b:commandButton class="nav-link" action="Docentes">
+                                        <div class="icon">
+                                            <img src="../img/icon-docentes.png" alt="Docentes"/>
+                                        </div>
+                                        <span>Docentes</span>
+                                    </b:commandButton>
+                                </li>
+                                <li class="nav-item">
+                                    <b:commandButton class="nav-link" action="Salones">
+                                        <div class="icon">
+                                            <img src="../img/icon-salones.png" alt="Salones"/>
+                                        </div>
+                                        <span>Salones</span>
+                                    </b:commandButton>
+                                </li>
+                                <li class="nav-item">
+                                    <b:commandButton class="nav-link" action="Clases">
+                                        <div class="icon">
+                                            <img src="../img/icon-grados.png" alt="Clases"/>
+                                        </div>
+                                        <span>Clases</span>
+                                    </b:commandButton>
+                                </li>
+                                <li class="nav-item">
+                                    <b:commandButton class="nav-link" action="Horarios">
+                                        <div class="icon">
+                                            <img src="../img/icon-horarios.png" alt="Horarios"/>
+                                        </div>
+                                        <span>Horarios</span>
+                                    </b:commandButton>
+                                </li>
+                                <li class="nav-item">
+                                    <b:commandButton class="nav-link" action="Cursos">
+                                        <div class="icon">
+                                            <img src="../img/cuaderno.png" alt="Cursos"/>
+                                        </div>
+                                        <span>Cursos</span>
+                                    </b:commandButton>
+                                </li>
+                                <li class="nav-item">
+                                    <b:commandButton class="nav-link" action="Matricula">
+                                        <div class="icon">
+                                            <img src="../img/tesis.png" alt="Matricula"/>
+                                        </div>
+                                        <span>Matricula</span>
+                                    </b:commandButton>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </b:form>
+
+
+                <!-- REGISTRO ESTUDIANTES -->
+                <div class="header"> 
+                    <h1>Registro Estudiantes</h1>
+                </div>
+
+                <main class="col-md-10">
+                    <!-- Texto Modal -->
+                    <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#myModal3">
+                        Registrar Estudiante
+                    </button>
+
+                    <div class="modal" id="myModal3" >
+                        <div class="modal-dialog  modal-lg">
+                            <div class="modal-content">
+                                <!-- Header -->
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Ingrese datos a registrar</h1>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">X</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!--Modal aquí -->
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <!--Contenido Principal aquí -->
+                                            <b:form id="RegisterForm">
+                                                <h2 class="Separador">Datos del Estudiante</h2>
+                                                <div class="row">
+                                                    <div class="col-4 mt-2">
+                                                        <h4>Nombres</h4>
+                                                        <b:inputText id="nombre" value="#{beanEstudiante.nombre}" required="true" requiredMessage="El nombre es obligatorio"/> 
+                                                        <b:message for="@previous" />
+                                                    </div>
+                                                    <div class="col-4 mt-2">
+                                                        <h4>Apellidos</h4>
+                                                        <b:inputText id="apellido"  value="#{beanEstudiante.apellido}" required="true" requiredMessage="El apellido es obligatorio"/>       
+                                                        <b:message for="@previous" />
+                                                    </div>
+                                                    <div class="col-4 mt-2">
+                                                        <h4>DNI</h4>
+                                                        <b:inputText id="dni" value="#{beanEstudiante.dni}" required="true" requiredMessage="El DNI es obligatorio"/>      
+                                                        <b:message  for="@previous" />
+                                                    </div>
+                                                    <div class="col-4 mt-2">
+                                                        <h4>F. nacimiento</h4>
+                                                        <b:inputText type="date" id="fechaNac" value="#{beanEstudiante.fechaNac}" required="true" requiredMessage="La fecha de nacimiento es obligatoria">   
+                                                            <f:convertDateTime pattern="yyyy-MM-dd" />
+                                                        </b:inputText>
+                                                        <b:message for="@previous" />
+                                                    </div>
+                                                    <div class="col-4 mt-2">
+                                                        <h4>Direccion</h4>
+                                                        <b:inputText id="direccion" value="#{beanEstudiante.direccion}" required="true" requiredMessage="La direccion es obligatoria"/> 
+                                                        <b:message for="@previous" />
+                                                    </div>
+                                                </div>
+                                                <br/>
+                                                <br/>
+                                                <b:commandButton class="btn btn-lg btn-success" value="Registrar Estudiante" action="#{beanEstudiante.agregarEstudiante()}">
+                                                    <f:ajax execute="@form" render="@form"></f:ajax>
+                                                </b:commandButton>
+
+
+                                                <h:outputScript rendered="#{beanEstudiante.registrationSuccessful}">
+                                                    mostrarAlerta();
+                                                    #{beanEstudiante.resetRegistrationStatus()};                                                   
+                                                </h:outputScript>
+                                            </b:form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary col-3" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LISTAR ESTUDIANTES -->
+                    <h1>Ver Estudiantes</h1>
+                    <div class="container-fluid">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Datos Registrados</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <b:form>
+                                        <b:dataTable value="#{beanEstudiante.listarEstudiantes()}" var="estudiante" style="width: 100%;">
+                                            <b:dataTableColumn  value="#{estudiante.idEstudiante}" label="ID" width="60px"/>
+                                            <b:dataTableColumn  value="#{estudiante.nombre}" label="NOMBRE " width="350px"/>
+                                            <b:dataTableColumn  value="#{estudiante.apellido}" label="APELLIDO" width="150px"/>
+                                            <b:dataTableColumn  value="#{estudiante.dni}" label="DNI" width="350px"/>
+                                            <b:dataTableColumn  label="F. NACIMIENTO" width="150px">
+                                                <h:outputText value="#{estudiante.fechaNac}">
+                                                    <f:convertDateTime pattern="yyyy-MM-dd" />
+                                                </h:outputText>
+                                            </b:dataTableColumn>
+                                            <b:dataTableColumn  value="#{estudiante.direccion}" label="DIRECCION" width="150px" />
+                                            <b:dataTableColumn label="ACCIONES" width="180px">
+                                                <b:commandButton oncomplete="$('.modalPseudoClass2').modal()" value="Editar" look="success" style="width:80px; align-content: center;" action="#{beanEstudiante.obtenerEstudiante(estudiante.idEstudiante)}">
+                                                    <f:ajax execute="@this" render="myFormID">
+                                                    </f:ajax>
+                                                </b:commandButton>
+                                                <b:commandButton value="Eliminar" look="danger" style="width:80px; align-content: center;"
+                                                                 action="#{beanEstudiante.eliminarEstudiante(estudiante)}"  />
+                                            </b:dataTableColumn>
+                                        </b:dataTable>   
+                                    </b:form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- EDITAR ESTUDIANTE MODAL-->
+                    <b:form id="myFormID">
+                        <b:modal  id="amodal2" title="Editar Datos del Estudiante" styleClass="modalPseudoClass2" closable="false" close-on-escape="false" backdrop="false">
+                            <b:panel id="resultado">
+                                <div class="row">
+                                    <div class="col-6 mt-2">
+                                        <h4>Nombres</h4>
+                                        <b:inputText id="nombre" value="#{beanEstudiante.est.nombre}" required="true" requiredMessage="El nombre es obligatorio"/> 
+                                        <b:message for="@previous" />
+                                    </div>
+                                    <div class="col-6 mt-2">
+                                        <h4>Apellidos</h4>
+                                        <b:inputText id="apellido"  value="#{beanEstudiante.est.apellido}" required="true" requiredMessage="El apellido es obligatorio"/>       
+                                        <b:message for="@previous" />
+                                    </div>
+                                    <div class="col-6 mt-2">
+                                        <h4>DNI</h4>
+                                        <b:inputText id="dni" value="#{beanEstudiante.est.dni}" required="true" requiredMessage="El DNI es obligatorio"/>      
+                                        <b:message  for="@previous" />
+                                    </div>
+                                    <div class="col-6 mt-2">
+                                        <h4>F. nacimiento</h4>
+                                        <b:inputText type="date" id="fechaNac" value="#{beanEstudiante.est.fechaNac}" required="true" requiredMessage="La fecha de nacimiento es obligatoria">   
+                                            <f:convertDateTime pattern="yyyy-MM-dd" />
+                                        </b:inputText>
+                                        <b:message for="@previous" />
+                                    </div>
+                                    <div class="col-6 mt-2">
+                                        <h4>Direccion</h4>
+                                        <b:inputText id="direccion" value="#{beanEstudiante.est.direccion}" required="true" requiredMessage="La direccion es obligatoria"/> 
+                                        <b:message for="@previous" />
+                                    </div>
+
+                                    <br/>
+                                    <br/>
+                                    <div class="col-8 mt-2">
+                                        <b:commandButton class="btn btn-lg btn-success" value="Editar Estudiante" action="#{beanEstudiante.actualizarEstudiante(beanEstudiante.est)}">
+                                            <f:ajax execute="@form" render="@form"></f:ajax>
+                                        </b:commandButton>
+
+                                        <h:outputScript rendered="#{beanEstudiante.registrationSuccessful}">
+                                            mostrarAlerta();
+                                            #{beanEstudiante.resetRegistrationStatus()};                                                   
+                                        </h:outputScript>
+                                    </div>
+                                </div>
+                            </b:panel>
+                            <f:facet name="footer">
+                                <b:button value="Cerrar" look="secondary" dismiss="modal" />
+                                <b:button value="Guardar" look="primary" />
+                            </f:facet>
+                        </b:modal>
+                    </b:form>
+                </main>
+            </div>
+        </div>
+
+
+
+        <script type="text/javascript">
+            function mostrarAlerta() {
+
+                // La función mostrarAlerta se ejecutará solo si el proceso fue exitoso
+                swal({
+                    title: "Registrado!",
+                    text: "Datos completados correctamente!",
+                    icon: "success",
+                    button: "OK"
+                })
+                        .then((value) => {
+                            // Si el usuario hace clic en OK, recargar la página
+                            if (value) {
+                                location.reload();
+                            }
+                        });
+            }
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-ancho-amplio {
+    width: 350px;
+}
+
+
+
+.sidebar {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #4EBDE4;
+}
+
+.sidebar .container-fluid {
+    padding: 0;
+}
+
+.sidebar .nav-link {
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .nav-link .d-block {
+    font-size: 14px; /* Tamaño del ícono */
+    margin-bottom: 5px; /* Espacio entre el ícono y el texto */
+}
+
+.sidebar .nav-link i {
+    font-size: 14px; /* Tamaño del ícono */
+}
+
+.sidebar .nav-link img {
+    width: 25px; /* Tamaño de la imagen */
+    height: 25px; /* Tamaño de la imagen */
+}
+
+.sidebar .nav-link:hover {
+    background-color: #fff;
+    color: black;
+    text-decoration: none;
+}
+
+.sidebar .nav-link{
+    background-color: #4EBDE4;
+    width: 150px;
+    
+}
+
+.nav flex-column > li{
+    background-color: black;
+}
+
+.col-md-2 img {
+    display: block;
+    margin: 20px; /* Centra la imagen horizontalmente */
+    width: 80px; /* Tamaño del logo (ajusta el valor según tus necesidades) */
+    margin-top: 15px; /* Espacio hacia arriba de la imagen */
+    margin-bottom: 15px; /* Espacio hacia abajo de la imagen */
+}
+
+/* Estilos del contenido principal */
+main {
+    margin-left: 190px;
+    padding: 20px;
+}
+
+.text-box{
+    border-color: black;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+    width: 100%;
+    
+}
+
+.submit-button{
+    border: none;
+    width: 100%;
+    height: 50px;
+    padding: 10px 10px 10px 10px;
+    background-color: #4EBDE4;
+    color: white;
+    text-decoration: underline white;
+}
+
+.table{
+    background-color: white;
+    border-color: black black;
+}
+
+.Separador{
+    text-decoration: underline black;
+}
+
+.header{
+    width: 100%;
+    margin-left: 154px;
+    padding: 20px 40px 20px 50px;
+}
+
+.rectangulos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+main .rectangulos >div{
+    background: #4EBDE4;
+    padding: 20px 20px 20px 20px;
+    border-radius: 30px;
+    border: black;
+}
