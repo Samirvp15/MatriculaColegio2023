@@ -119,19 +119,19 @@
                                         <div class="row">
                                             <!--Contenido Principal aquí -->
                                             <b:form id="RegisterForm">
-                                                <h2 class="Separador">Nombre del Alumno</h2>
+                                                <h2 class="Separador">Datos del Alumno</h2>
                                                 <div class="row">
                                                     <div class="col-6 mt-2">
                                                         <h4>DNI Estudiante</h4>
                                                         <b:selectOneMenu id="idestudiante" value="#{beanMatricula.idestudiante}">
-                                                            <f:selectItems value="#{beanEstudiante.listarEstudiantes()}" var="estudiante" itemLabel="#{estudiante.dni}" itemValue="#{estudiante}" />
+                                                            <f:selectItems value="#{beanEstudiante.listarEstudiantes()}" var="estudiante" itemLabel="#{estudiante.nombre} #{estudiante.apellido}" itemValue="#{estudiante}" />
                                                         </b:selectOneMenu>
                                                         <b:message for="@previous" />
                                                     </div>
                                                     <div class="col-6 mt-2">
                                                         <h4>DNI Apoderado</h4>
                                                         <b:selectOneMenu id="idapoderado" value="#{beanMatricula.idapoderado}">
-                                                            <f:selectItems value="#{beanApoderado.listarApoderados()}" var="apoderado" itemLabel="#{apoderado.dni}" itemValue="#{apoderado}" />
+                                                            <f:selectItems value="#{beanApoderado.listarApoderados()}" var="apoderado" itemLabel="#{apoderado.nombre} #{apoderado.apellido}" itemValue="#{apoderado}" />
                                                         </b:selectOneMenu>
                                                         <b:message for="@previous" />
                                                     </div>
